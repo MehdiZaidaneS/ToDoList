@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import './App.css';
+import List from './list/list';
+import CreateNote from './createNote/createNote';
 import { useGlobalContext } from './context/globalContext';
 
 function App() {
 
-  const {getNotes, notes} = useGlobalContext();
+  const {getNotes } = useGlobalContext();
   
   useEffect(()=>{
    
@@ -15,17 +17,8 @@ function App() {
 
   return (
     <div className="App">
-      <div>
-        <h1>Hola</h1>
-      {
-        notes.map(note =>{
-          return(
-            <p key={note._id}>{note.title}</p>
-          )
-        })
-       }
-
-      </div>
+        <List />
+        <CreateNote />
     </div>
   );
 }

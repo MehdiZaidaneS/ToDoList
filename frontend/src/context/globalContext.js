@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, {useContext, useState} from "react"
 
-const PORT_URL = "https://todolist-server-0pfp.onrender.com/api/v1/"
+const PORT_URL = "http://localhost:5000/api/v1/"
 
 const GlobalContext = React.createContext();
 

@@ -6,6 +6,11 @@ const NoteModel = new moongose.Schema({
        required: true,
        trim: true,
        maxLength: 50
+    },
+    status:{
+        type: Boolean,
+        required: true,
+       
     }
 }, {timestamps: true})
 

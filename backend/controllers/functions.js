@@ -4,7 +4,8 @@ exports.addNote = async(req, res) =>{
 
     const {title} = req.body;
     const newNote = NoteModel({
-        title
+        title,
+        status: false
     })
     try{
         if(!title){
