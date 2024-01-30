@@ -24,11 +24,28 @@ export const GlobalProvider = ({children}) => {
         getNotes()
     }
 
+    const updateNote = async(note)=>{
+        const response = await axios.post(`${PORT_URL}update-note`, note)
+        .catch((err)=>{
+            setError(err.response.data.message)
+        })
+        console.log(response)
+        getNotes()
+    }
+
 
     const getNotes = async() =>{
         const response = await axios.get(`${PORT_URL}get-notes`)
         setNotes(response.data)
     }
+
+    const deleteNote = async(id)=>{
+        const response = await axios.delete(`${PORT_URL}delete-note/${id}`)
+        console.log(response)
+        getNotes()
+    }
+
+
 
 
     return(
@@ -38,7 +55,9 @@ export const GlobalProvider = ({children}) => {
            addNote,
            notes,
            getNotes,
-           setNotes
+           setNotes,
+           deleteNote,
+           updateNote
         }}>
             {children}
         </GlobalContext.Provider>    

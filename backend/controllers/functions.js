@@ -33,3 +33,36 @@ exports.getNotes = async(req, res) =>{
         res.status(500).json({message: "Couldnt get the data!"})
     }
 }
+
+
+exports.deleteNote = async (req, res) =>{
+    
+    const {id} = req.params;
+    NoteModel.findByIdAndDelete(id)
+    .then((note)=>{
+        res.status(200).json({message: "Note Deleted!"})
+    })
+    .catch((error)=>{
+        res.status(500).json({message: "Couldnt deleted!"})
+    })
+}
+
+
+exports.updateNote = async (req, res)=>{
+    
+    const db = NoteModel.db.collection("notes");
+    const {title, status} = req.body;
+    try {
+        await db.updateOne({ title: title },
+            {
+              $set: {
+                "status" : !status
+              },
+              $currentDate: { updatedAt: true }
+            })
+        res.status(200).json({message: "Note updated!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt update the note!"})
+        console.log("error")
+    }
+}

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './list.css';
 import {format} from "date-fns"
 import { useGlobalContext } from '../context/globalContext';
 
 const List = () => {
 
-    const { notes } = useGlobalContext();
+    const { notes, deleteNote, updateNote } = useGlobalContext();
+
+    
+    
+   
+    
+
+
+
+   
 
     return (
         <div className='list'>
@@ -20,8 +29,8 @@ const List = () => {
                            <p>{note.title}</p>
                            <p>{time}</p>
                            <p>Status: Undone </p>
-                           <button>Done</button>
-                           <button>Delete</button>
+                           <button onClick={()=> updateNote(note) }>Done</button>
+                           <button onClick={()=> deleteNote(note._id)}>Delete</button>
                       </div> 
                     )   
                 }else{

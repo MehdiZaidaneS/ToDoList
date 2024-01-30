@@ -30,6 +30,10 @@ const CreateNote = () => {
         e.preventDefault()
 
         addNote(inputState)
+
+        setInputState({
+            title:""
+        })
     }
     return (
         <div className='createNotes'>
