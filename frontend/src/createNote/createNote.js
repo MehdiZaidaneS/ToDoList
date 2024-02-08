@@ -37,10 +37,11 @@ const CreateNote = () => {
     }
     return (
         <div className='createNotes'>
-            <h1>createNotes</h1>
+           
             <form onSubmit={handleSubmit}>
-                <input type='text' value={title} name={"title"} onChange={handleInput("title")}></input>
-                <button>Submit</button>
+                <h1>ADD TASK</h1>
+                <input placeholder='Task to be done...' type='text' value={title} name={"title"} onChange={handleInput("title")}></input>
+                <button>Add</button>
             </form>
             <RecentNotes />
             

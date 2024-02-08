@@ -1,24 +1,67 @@
 .list{
-    background-color: rgb(243, 174, 174);
+  
     text-align: center;
-    width: 50%;
+    width: 80%;
     display: flex;
     height: 100%;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
+    width: 50%;
+    height: 100%;
    
 }
 
+
 .note{
-    border: 1px solid black;
-    background-color: aliceblue;
+    
+    border: 1px solid rgb(66, 66, 66);
+    background-color: rgb(0, 0, 0);
     padding: 10px;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+}
+ 
+.page .note div{
     display: flex;
     flex-direction: row;
-    margin: 5px;
+    justify-content: center;
+    text-align: center;
 }
 
 .note p{
-    margin: 5px;
+    margin: 7px;
 }
+
+
+ .list h1{
+    margin-bottom: 15px;
+}
+
+
+ .page{
+    background-color: rgb(199, 198, 198);
+    width: 55%;
+    height: 80%;
+    border-radius: 10px;
+    
+}
+
+
+ .card{
+    margin-top: 15px;
+    display:inline-flex;
+    width: 100%;
+    justify-content: center;
+}
+.card button{
+    background-color: red;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+
+

@@ -1,14 +1,16 @@
 import React from 'react';
+import './recentNotes.css';
 import { useGlobalContext } from '../context/globalContext';
 import {format} from "date-fns"
 
 const RecentNotes = () => {
      
-    const { notes } = useGlobalContext();
+    const { notes,deleteNote, updateNote } = useGlobalContext();
 
     return (
-        <div>
+        <div className='recentNotes'>
             <h1>Completed Tasks</h1>
+            <div cl>
             {
               notes.map(note =>{
                 var time = format(new Date(note.createdAt), 'dd/MM/yyyy')
@@ -17,9 +19,9 @@ const RecentNotes = () => {
                         <div className='note' key={note._id}>
                            <p>{note.title}</p>
                            <p>{time}</p>
-                           <p>Status: Undone </p>
-                           <button>Undone</button>
-                           <button>Delete</button>
+                           <p>Status: Done </p>
+                           <button onClick={()=> updateNote(note) }>Undone</button>
+                           <button onClick={()=> deleteNote(note._id)}>Delete</button>
                       </div> 
                     )   
                 }else{
@@ -29,6 +31,9 @@ const RecentNotes = () => {
                 }
               })
              }
+
+            </div>
+            
         </div>
     );
 };
