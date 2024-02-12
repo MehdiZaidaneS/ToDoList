@@ -1,6 +1,8 @@
 import React from 'react';
 import './list.css';
 import {format} from "date-fns"
+import { TiDelete } from "react-icons/ti";
+import { FaCheckCircle } from "react-icons/fa";
 import { useGlobalContext } from '../context/globalContext';
 
 const List = () => {
@@ -18,12 +20,11 @@ const List = () => {
                 var time = format(new Date(note.createdAt), 'dd/MM/yyyy')
                 if(note.status === false){
                     return(
-                        <div className='card'>
+                        <div className='card' key={note._id}>
                           
-                            <button style={{backgroundColor: "green", paddingLeft: "30px", margin: "25px"}} onClick={()=> updateNote(note) }></button> 
-                            <div className='note' key={note._id}>
+                            <div className='note' >
                                <div>
-                                 <h2>{note.title}</h2>
+                                 <h3>{note.title}</h3>
                                </div>
                                <div>
                                   <p>Created at: {time}</p>
@@ -31,7 +32,8 @@ const List = () => {
                                  
                                </div>      
                             </div>
-                            <button style={{backgroundColor: "red", margin: "17px", padding: "5px", borderRadius:"100%"}} onClick={()=> deleteNote(note._id)}>Delete</button>
+                            <button style={{marginLeft: "13px"}} onClick={()=> updateNote(note) }><FaCheckCircle size={25} /></button>
+                            <button  ><TiDelete onClick={()=> deleteNote(note._id)} size={35} style={{color: "red"}} /></button>
 
                         </div> 
                     )   

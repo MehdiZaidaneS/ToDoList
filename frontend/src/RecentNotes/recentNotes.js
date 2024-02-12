@@ -5,22 +5,21 @@ import {format} from "date-fns"
 
 const RecentNotes = () => {
      
-    const { notes,deleteNote, updateNote } = useGlobalContext();
+    const { notes,deleteNote } = useGlobalContext();
 
     return (
         <div className='recentNotes'>
             <h1>Completed Tasks</h1>
-            <div cl>
+           
             {
-              notes.map(note =>{
+               notes.slice(0,5).map(note =>{
                 var time = format(new Date(note.createdAt), 'dd/MM/yyyy')
                 if(note.status === true){
                     return(
-                        <div className='note' key={note._id}>
+                        <div className='recentNote' key={note._id}>
                            <p>{note.title}</p>
                            <p>{time}</p>
-                           <p>Status: Done </p>
-                           <button onClick={()=> updateNote(note) }>Undone</button>
+                           {/* <button onClick={()=> updateNote(note) }>Undone</button> */}
                            <button onClick={()=> deleteNote(note._id)}>Delete</button>
                       </div> 
                     )   
@@ -31,8 +30,6 @@ const RecentNotes = () => {
                 }
               })
              }
-
-            </div>
             
         </div>
     );

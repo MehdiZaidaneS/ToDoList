@@ -15,10 +15,21 @@ function App() {
   },[])
 
 
+function changeColor(color){
+    
+    document.body.style.backgroundColor= color;
+  }
+
+
   return (
     <div className="App">
-        <List />
-        <CreateNote />
+      <div className='buttons'>
+        <button style={{backgroundColor: "white", padding: "15px"}} onClick={() => changeColor("white")}></button>
+        <button style={{backgroundColor: "black", padding: "15px"}}onClick={()=> changeColor("black")}></button>
+        <button style={{backgroundColor: "green", padding: "15px"}}onClick={()=> changeColor("green")}></button>
+      </div> 
+      <List />
+      <CreateNote />
     </div>
   );
 }

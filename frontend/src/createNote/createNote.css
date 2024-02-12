@@ -8,7 +8,8 @@
     flex-direction: column;
     justify-content: center; */
 
-    
+    width: 40%;
+
 }
 
 .createNotes form{
@@ -16,8 +17,10 @@
  background-color: rgb(255, 255, 255);
  display: flex;
  flex-direction: column;
-
-
+ width: 50%;
+ margin: 0 auto;
+ justify-content: center;
+ text-align: center;
 }
 
 .createNotes h1{

@@ -1,3 +1,30 @@
 .recentNotes h1{
   color: white;
 }
+
+
+.recentNotes{
+  background-color: gray;
+  height: 50vh;
+  width: 60%;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.recentNote{
+  justify-content: center;
+  margin-top: 15px;
+
+}
+
+.recentNote p{
+  margin: 5px;
+}
+
+
+.recentNote button{
+  background-color: black;
+}
