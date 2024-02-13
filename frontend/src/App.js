@@ -15,21 +15,21 @@ function App() {
   },[])
 
 
-function changeColor(color){
+// function changeColor(color, colorText){
     
-    document.body.style.backgroundColor= color;
-  }
+//     document.body.style.backgroundColor= color;
+//   }
 
 
   return (
     <div className="App">
-      <div className='buttons'>
-        <button style={{backgroundColor: "white", padding: "15px"}} onClick={() => changeColor("white")}></button>
-        <button style={{backgroundColor: "black", padding: "15px"}}onClick={()=> changeColor("black")}></button>
-        <button style={{backgroundColor: "green", padding: "15px"}}onClick={()=> changeColor("green")}></button>
-      </div> 
+      {/* <div className='buttons'>
+        <button style={{backgroundColor: "blue", padding: "15px"}} onClick={() => changeColor("blue", "black")}></button>
+        <button style={{backgroundColor: "black", padding: "15px"}}onClick={()=> changeColor("black", "white")}></button>
+        <button style={{backgroundColor: "green", padding: "15px"}}onClick={()=> changeColor("green", "white")}></button>
+      </div>  */}
       <List />
-      <CreateNote />
+      {/* <CreateNote /> */}
     </div>
   );
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './createNote.css';
-import RecentNotes from '../RecentNotes/recentNotes';
 import { useGlobalContext } from '../context/globalContext';
 const CreateNote = () => {
 
-    const { addNote } = useGlobalContext();
+    const { addNote, notes } = useGlobalContext();
     
 
     
@@ -16,7 +15,7 @@ const CreateNote = () => {
     
 
 
-    
+    const [error, setError] = useState("")
 
     const [inputState, setInputState] = useState({
         title: "",
@@ -28,22 +27,28 @@ const CreateNote = () => {
     const handleSubmit = e =>{
 
         e.preventDefault()
+        
+        
+        if(notes.length > 13){
+            setError("Error!")
+        }else{
+            addNote(inputState)
+            setInputState({
+                title:""
+            })
+            setError("")
+        }
 
-        addNote(inputState)
-
-        setInputState({
-            title:""
-        })
+        
     }
     return (
         <div className='createNotes'>
            
             <form onSubmit={handleSubmit}>
-                <h1>ADD TASK</h1>
+                 {error && <p style={{color: "red"}}>{error}</p>}
                 <input placeholder='Task to be done...' type='text' value={title} name={"title"} onChange={handleInput("title")}></input>
                 <button>Add</button>
             </form>
-            <RecentNotes />
             
             
         </div>
