@@ -1,32 +1,29 @@
-/* .recentNotes h1{
-  color: white;
-  padding-top: 8px;
-}
-
-
 .recentNotes{
-  background-color: gray;
-  height: 50vh;
-  width: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   margin: 0 auto;
   justify-content: center;
   text-align: center;
-  margin-top: 20px;
-  border-radius: 3%;
+  width: 100%;
 }
-
 
 .recentNote{
+  background-color: rgb(40, 0, 77);
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5px;
+  text-align: center;
   justify-content: center;
-  margin-top: 15px;
+  border-radius: 10px;
 
 }
 
-.recentNote p{
+.recentNoteText{
   margin: 5px;
+
 }
 
-
-.recentNote button{
-  background-color: black;
-} */
+.recentNoteText p{
+  margin: 5px;
+  font-size: 20px;
+}

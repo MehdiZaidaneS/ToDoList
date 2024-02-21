@@ -3,6 +3,7 @@ import './list.css';
 // import {format} from "date-fns"
 import { TiDelete } from "react-icons/ti";
 import { FaCheckCircle } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 import RecentNotes from '../RecentNotes/recentNotes';
 import CreateNote from '../createNote/createNote';
 import { useGlobalContext } from '../context/globalContext';
@@ -35,9 +36,10 @@ const List = () => {
                         <div className='card' key={note._id}>
                           
                             <div className='note' >
-                               <div>
+                               <div style={{margin: "0 auto"}}>
                                  <h3>{note.title}</h3>
                                </div>
+                                <FaEdit style={{float:"right"}} size={19}/>
                                {/* <div>
                                   <p>Created at: {time}</p>
                                   <p style={{color: "red"}}>Status: Undone </p>

@@ -1,4 +1,20 @@
-.createNotes{
- width: 40%;
+.createNotes button{
+    color: white;
+    padding: 7px;
+    background-color: rgb(108, 0, 209);
+    margin-left: 2px;
+    border: none;
 }
 
+.createNotes{
+    margin-bottom: 8px;
+}
+
+.createNotes input{
+    padding: 5px;
+    color: black;
+}
+
+.createNotes p{
+    margin-top: 5px;
+}

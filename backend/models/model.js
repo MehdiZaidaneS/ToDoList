@@ -11,6 +11,10 @@ const NoteModel = new moongose.Schema({
         type: Boolean,
         required: true,
        
+    },
+    selected:{
+        type:Boolean,
+        required: true,
     }
 }, {timestamps: true})
 

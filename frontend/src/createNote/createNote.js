@@ -29,8 +29,8 @@ const CreateNote = () => {
         e.preventDefault()
         
         
-        if(notes.length > 13){
-            setError("Error!")
+        if(notes.length > 8){
+            setError("You have many tasks already!")
         }else{
             addNote(inputState)
             setInputState({
@@ -45,9 +45,10 @@ const CreateNote = () => {
         <div className='createNotes'>
            
             <form onSubmit={handleSubmit}>
-                 {error && <p style={{color: "red"}}>{error}</p>}
+                
                 <input placeholder='Task to be done...' type='text' value={title} name={"title"} onChange={handleInput("title")}></input>
-                <button>Add</button>
+                <button>Add Task</button>
+                {error && <p style={{color: "red"}}>{error}</p>}
             </form>
             
             
