@@ -33,6 +33,15 @@ export const GlobalProvider = ({children}) => {
         getNotes()
     }
 
+    const changeSelected = async(note)=>{
+        const response = await axios.post(`${PORT_URL}change-status`, note)
+        .catch((err)=>{
+            setError(err.response.data.message)
+        })
+        console.log(response)
+        getNotes()
+    }
+
 
     const getNotes = async() =>{
         const response = await axios.get(`${PORT_URL}get-notes`)
@@ -57,7 +66,8 @@ export const GlobalProvider = ({children}) => {
            getNotes,
            setNotes,
            deleteNote,
-           updateNote
+           updateNote,
+           changeSelected
         }}>
             {children}
         </GlobalContext.Provider>    

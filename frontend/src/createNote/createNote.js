@@ -29,7 +29,9 @@ const CreateNote = () => {
         e.preventDefault()
         
         
-        if(notes.length > 8){
+        const newArray = notes.filter(notes => notes.status === false)
+
+        if(newArray.length > 8){
             setError("You have many tasks already!")
         }else{
             addNote(inputState)

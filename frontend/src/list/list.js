@@ -10,11 +10,16 @@ import { useGlobalContext } from '../context/globalContext';
 
 const List = () => {
 
-    const { notes, deleteNote, updateNote } = useGlobalContext();
+
+    const { notes, deleteNote, updateNote} = useGlobalContext();
+
+  
 
     const [watchTasks, setWatchTasks] = useState(true)
 
     const [active, setActive] = useState(true)
+
+
 
     return (
         <div className='list'>
@@ -46,6 +51,7 @@ const List = () => {
                                  
                                </div>       */}
                             </div>
+                          
                             <button style={{marginLeft: "13px"}} onClick={()=> updateNote(note) }><FaCheckCircle size={25} /></button>
                             <button  ><TiDelete onClick={()=> deleteNote(note._id)} size={35} style={{color: "red"}} /></button>
 

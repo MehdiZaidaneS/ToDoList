@@ -67,3 +67,22 @@ exports.updateNote = async (req, res)=>{
         console.log("error")
     }
 }
+
+exports.changeSelected = async (req, res)=>{
+    
+    const db = NoteModel.db.collection("notes");
+    const {title, selected} = req.body;
+    try {
+        await db.updateOne({ title: title },
+            {
+              $set: {
+                "selected" : !selected
+              },
+              $currentDate: { updatedAt: true }
+            })
+        res.status(200).json({message: "Status updated!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt update the status!"})
+        console.log("error")
+    }
+}
