@@ -22,6 +22,9 @@ const RecentNotes = () => {
     const { notes,deleteNote, changeSelected } = useGlobalContext();
     
     const [appearButton, setAppearButton] = useState(false)
+
+
+    // const sortedArray= notes.sort((a, b) => parseFloat(b.createdAt) - parseFloat(a.createdAt));
     
     
     function deleteSelected(){

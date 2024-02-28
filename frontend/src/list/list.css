@@ -25,6 +25,15 @@
     text-align: left;
 }
 
+.note div input{
+    font-family:'Courier New', Courier, monospace;
+}
+
+.note div input:focus{
+   outline-style: none;
+   box-shadow: none;
+}
+
 
 .note p{
     margin: 5px;

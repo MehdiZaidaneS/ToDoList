@@ -68,6 +68,26 @@ exports.updateNote = async (req, res)=>{
     }
 }
 
+exports.changeNoteName = async (req, res)=>{
+    const db = NoteModel.db.collection("notes");
+    const {title, newTitle} = req.body;
+    try {
+        await db.updateOne({ title: title },
+            {
+              $set: {
+                "title" : newTitle
+              },
+              $currentDate: { updatedAt: true }
+            })
+        res.status(200).json({message: "Name changed!"})
+    } catch (error) {
+        res.status(500).json({message: "Couldnt change the name!"})
+        console.log("error")
+    }
+}
+
+
+
 exports.changeSelected = async (req, res)=>{
     
     const db = NoteModel.db.collection("notes");
