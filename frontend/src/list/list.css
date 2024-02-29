@@ -95,5 +95,26 @@
 } */
 
 
+.msg { 
+    animation: earner 2s ease-out;
+}
 
+@keyframes earner {
+    
+    0% {
+      transform: translateY(100%);
+      opacity: 1;
+    
+    }
 
+    50%{
+        opacity: 0.5;
+    }
+  
+    100% {
+      transform: translateY(-100%);
+      opacity: 0;
+      display: none;
+    }
+    
+  }

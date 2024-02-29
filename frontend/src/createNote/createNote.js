@@ -33,6 +33,9 @@ const CreateNote = () => {
 
         if(newArray.length > 8){
             setError("You have many tasks already!")
+            setTimeout(() => {
+                setError("");
+              }, 2000);
         }else{
             addNote(inputState)
             setInputState({

@@ -18,30 +18,44 @@ const List = () => {
     const [watchTasks, setWatchTasks] = useState(true)
     const [active, setActive] = useState(true)
     const [newName, setNewName] = useState("")
+    const [msgName, setMsgName] = useState("msg2")
     
 
     const handleInput = e => {
       setNewName(e.target.value)
-      console.log(newName)
+     
 }
 
    
     function nameChanger(noteTitle, note){
 
-      const newNote = {
-         newTitle: newName,
-         title: noteTitle
+     
+      if(newName=== ""){
+        changeSelected(note)
+      }else{
+        const newNote = {
+          newTitle: newName,
+          title: noteTitle
+       }
+ 
+       changeName(newNote)
+       changeSelected(note)
+       setMsgName("msg")
+       
+       setTimeout(() => {
+         setMsgName("msg2");
+       }, 2000);
+
       }
 
-      changeName(newNote)
-      changeSelected(note)
-      console.log(newName, noteTitle)
+      
+     
     }
 
 
     return (
         <div className='list'>
-           
+            <p className={msgName} style={{opacity: "0", color: "green", marginBottom:"-10px"}}>Change Succefully</p>
             <h1>Get things done!</h1>
 
             <CreateNote />
@@ -65,9 +79,10 @@ const List = () => {
                                  }
                                  {
                                   note.selected &&
-                                  <form onSubmit={()=>nameChanger(note.title, note)}>
-                                    <input  value={newName} onChange={handleInput}  style={{color: "white",background:"none", border:"none", padding:"4px"}} type='text' placeholder="Add text..."></input>
-                                  </form>
+                                  <div>
+                                  <input  value={newName} onChange={handleInput}  style={{margin: "0 auto", color: "white",background:"none", border:"none", padding:"4px"}} type='text' placeholder="Add text..."></input>
+                                  <button style={{backgroundColor: "black", float:"right", padding:"5px"}} onClick={()=> nameChanger(note.title, note)}>Apply</button>
+                                  </div>
                                   
                                  }
                                 
@@ -79,8 +94,8 @@ const List = () => {
                                
                             </div>
                           
-                            <button style={{marginLeft: "13px"}} onClick={()=> note.selected ? nameChanger(note.title, note) : updateNote(note) }><FaCheckCircle size={25} /></button>
-                            <button  ><TiDelete onClick={()=> note.selected ? changeSelected(note) : deleteNote(note._id)} size={35} style={{color: "red"}} /></button>
+                            <button style={{marginLeft: "13px"}} onClick={()=>  updateNote(note) }><FaCheckCircle size={25} /></button>
+                            <button  ><TiDelete onClick={()=> deleteNote(note._id)} size={35} style={{color: "red"}} /></button>
                             
                             
 
